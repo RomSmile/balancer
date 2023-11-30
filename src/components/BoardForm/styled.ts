@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Button, Calendar } from 'antd';
 import { IFormWrapper } from './types';
+import { colors } from '../../static';
 
 export const FormWrapper = styled.div<IFormWrapper>`
   ${({ isAbsolute }) =>
@@ -37,7 +38,7 @@ export const FormWrapper = styled.div<IFormWrapper>`
     right: 0;
     width: 100%;
     height: 50%;
-    background-color: #70d1ff;
+    background-color: ${colors.primaryBlue};
     z-index: 1;
     border-radius: 15px 15px 0 0;
   }
@@ -49,7 +50,7 @@ export const FormWrapper = styled.div<IFormWrapper>`
     right: 0;
     width: 100%;
     height: 50%;
-    background-color: #ade4ff;
+    background-color: ${colors.lightBlue};
     z-index: 1;
     border-radius: 0 0 15px 15px;
   }

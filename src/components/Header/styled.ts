@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Button } from 'antd';
 import { INavigation, INavigationSideMenu } from './types';
+import { colors } from '../../static';
 
 export const HeaderWrapper = styled.header`
   display: flex;
@@ -8,7 +9,7 @@ export const HeaderWrapper = styled.header`
   width: 100%;
   height: 80px;
   box-shadow: 8px 3px 8px rgba(246, 241, 241, 0.53);
-  background-color: #5423e7;
+  background-color: ${colors.purple};
   padding: 10px 20px;
 
   @media screen and (max-width: 640px) {
@@ -23,7 +24,7 @@ export const StyledLogo = styled.h1`
   font-weight: 600;
   font-size: 24px;
   width: 150px;
-  color: #fff;
+  color: ${colors.white};
   margin: 0;
 
   @media screen and (max-width: 480px) {
@@ -33,7 +34,7 @@ export const StyledLogo = styled.h1`
   & a {
     cursor: pointer;
     text-decoration: none;
-    color: #fff;
+    color: ${colors.white};
   }
 
   & span {
@@ -46,11 +47,11 @@ export const StyledLogo = styled.h1`
     & a {
       cursor: pointer;
       text-decoration: none;
-      color: #fff;
+      color: ${colors.white};
       transition: color 0.3s;
 
       &:hover {
-        color: black;
+        color: ${colors.black};
       }
     }
   }
@@ -84,11 +85,11 @@ export const NavigationItem = styled.li`
   & a {
     cursor: pointer;
     text-decoration: none;
-    color: #fff;
+    color: ${colors.white};
     transition: color 0.3s;
 
     &:hover {
-      color: #000;
+      color: ${colors.black};
     }
   }
 `;
@@ -115,7 +116,7 @@ export const NavigationSideMenu = styled.div<INavigationSideMenu>`
   ${({ isopen }) => !Number(isopen) && 'transform: translateX(100%);'}
   height: 100dvh;
   width: 100vw;
-  background: #5423e7;
+  background: ${colors.purple};
   z-index: 4;
   padding: 20px 25px;
   transition: all 0.3s;

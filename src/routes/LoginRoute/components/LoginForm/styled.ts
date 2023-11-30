@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Button } from 'antd';
+import { colors } from '../../../../static';
 
 export const LoginWrapper = styled.div`
   position: absolute;
@@ -28,7 +29,7 @@ export const LoginWrapper = styled.div`
     right: 0;
     width: 100%;
     height: 50%;
-    background-color: #f53d6b;
+    background-color: ${colors.primaryRed};
     z-index: 1;
     border-radius: 10px 10px 0 0;
   }
@@ -40,7 +41,7 @@ export const LoginWrapper = styled.div`
     right: 0;
     width: 100%;
     height: 50%;
-    background-color: #fbb1c4;
+    background-color: ${colors.lightRed};
     z-index: 1;
     border-radius: 0 0 10px 10px;
   }
@@ -49,7 +50,7 @@ export const LoginWrapper = styled.div`
 export const StyledLogo = styled.h2`
   font-size: 24px;
   text-transform: uppercase;
-  color: #fff;
+  color: ${colors.white};
   margin-bottom: 0;
 `;
 

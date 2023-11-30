@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { IMainRow } from './types';
 import { Collapse } from 'antd';
+import { colors } from '../../static';
 
 export const AboutBlockWrapper = styled.div`
   width: 100%;
@@ -13,7 +14,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  background: #dff8ea;
+  background: ${colors.lightGreen};
   border-radius: 10px;
 `;
 
@@ -21,7 +22,7 @@ export const ContentHeader = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 30px;
-  background: #b2eecc;
+  background: ${colors.primaryGreen};
   margin-bottom: 20px;
   padding: 20px 30px;
   border-radius: 10px 10px 0 0;
@@ -51,11 +52,11 @@ export const ResumeTitle = styled.h1`
 
 export const ResumeLink = styled.a`
   text-decoration: none;
-  color: #1677ff;
+  color: ${colors.darkBlue};
   transition: color 0.3s;
 
   &:hover {
-    color: #000;
+    color: ${colors.black};
   }
 `;
 
@@ -74,10 +75,10 @@ export const ContentBody = styled.div`
 
 export const StyledCollapse = styled(Collapse)`
   & .ant-collapse-header {
-    background: #70d1ff;
+    background: ${colors.primaryBlue};
   }
 
   & .ant-collapse-content-box {
-    background: #ade4ff;
+    background: ${colors.lightBlue};
   }
 `;

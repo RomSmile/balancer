@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Collapse } from 'antd';
+import { colors } from '../../static';
 
 export const InstructionsWrapper = styled.div`
   display: flex;
@@ -17,10 +18,10 @@ export const Title = styled.h1`
 
 export const StyledCollapse = styled(Collapse)`
   & .ant-collapse-header {
-    background: #70d1ff;
+    background: ${colors.primaryBlue};
   }
 
   & .ant-collapse-content-box {
-    background: #ade4ff;
+    background: ${colors.lightBlue};
   }
 `;
