@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { observer } from 'mobx-react-lite';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import useStore from './hooks/useStore';
+import { LoginRoute, BoardRoute, BoardSettingsRoute, InstructionsRoute, AboutRoute } from './routes';
+import { Header } from './components';
 
 function App() {
+  const { userAccess } = useStore();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header />
+        {!(userAccess.allowEnter || localStorage.getItem('allowEnter') === '1') && <Navigate to={'/login'} />}
+        <Routes>
+          <Route index element={<BoardRoute />} />
+          <Route path="/login" element={<LoginRoute />} />
+          <Route path="/settings" element={<BoardSettingsRoute />} />
+          <Route path="/instructions" element={<InstructionsRoute />} />
+          <Route path="/about" element={<AboutRoute />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
 
-export default App;
+export default observer(App);

@@ -1,11 +1,21 @@
 import styled from 'styled-components';
 import { Button, Calendar } from 'antd';
+import { IFormWrapper } from './types';
 
-export const FormWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+export const FormWrapper = styled.div<IFormWrapper>`
+  ${({ isAbsolute }) =>
+    isAbsolute
+      ? `
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    `
+      : `
+      margin: 0 auto;
+      position: relative;
+      margin-top: 20px;
+    `}
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,6 +70,10 @@ export const Label = styled.p`
 export const StyledCalendar = styled(Calendar)`
   & .ant-radio-button-wrapper {
     display: none;
+  }
+
+  & .ant-select-dropdown {
+    z-index: 3;
   }
 `;
 

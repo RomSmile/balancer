@@ -1,3 +1,1 @@
-const Login = () => {
-  return {};
-};
+export { default } from './LoginRoute';

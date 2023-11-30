@@ -3,10 +3,10 @@ import { FormWrapper, Form, Label, StyledCalendar, FormItemWrapper, CloseButton 
 import { IBoardForm } from './types';
 import { InputNumber } from 'antd';
 import dayjs, { Dayjs } from 'dayjs';
-import { StyledButton } from '../../styled';
-import useStore from '../../../../hooks/useStore';
+import { StyledButton } from '../../routes/BoardRoute/styled';
+import useStore from '../../hooks/useStore';
 
-const BoardForm: FC<IBoardForm> = ({ onClose, boardItem = null }) => {
+const BoardForm: FC<IBoardForm> = ({ onClose, boardItem = null, onSaveCallBack = null, isAbsolute = true }) => {
   const { board } = useStore();
   const [month, setMonth] = useState<string>(boardItem ? boardItem.month : '01:2023');
   const [expenses, setExpenses] = useState<number>(boardItem ? boardItem.expenses : 0);
@@ -33,21 +33,25 @@ const BoardForm: FC<IBoardForm> = ({ onClose, boardItem = null }) => {
         ua: profit - expenses,
       });
     } else {
-      board.addItem({
-        month,
-        expenses,
-        profit,
-        ua: profit - expenses,
-      });
+      board
+        .addItem({
+          month,
+          expenses,
+          profit,
+          ua: profit - expenses,
+        })
+        .then(() => onSaveCallBack && onSaveCallBack());
     }
-    onClose();
+    onClose && onClose();
   };
 
   return (
-    <FormWrapper>
-      <CloseButton type="primary" shape="circle" danger onClick={onClose}>
-        X
-      </CloseButton>
+    <FormWrapper isAbsolute={isAbsolute}>
+      {onClose && (
+        <CloseButton type="primary" shape="circle" danger onClick={onClose}>
+          X
+        </CloseButton>
+      )}
       <Form>
         <FormItemWrapper>
           <Label>Please, choose the month:</Label>
