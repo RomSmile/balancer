@@ -31,7 +31,9 @@ const Header = () => {
     <>
       <NavigationSideMenu isopen={isOpenSideMenu ? '1' : '0'}>
         <StyledLogo>
-          <Link to="/">BALANCER</Link>{' '}
+          <Link onClick={closeSideMenu} to="/">
+            BALANCER
+          </Link>{' '}
           <span>
             Powered by{' '}
             <a href="https://github.com/RomSmile" target="_blank" rel="noreferrer">
@@ -42,7 +44,9 @@ const Header = () => {
         <Navigation isrow={'0'}>
           {routes.map((route, index) => (
             <NavigationItem key={index}>
-              <Link to={route.path}>{route.name}</Link>
+              <Link onClick={closeSideMenu} to={route.path}>
+                {route.name}
+              </Link>
             </NavigationItem>
           ))}
         </Navigation>
